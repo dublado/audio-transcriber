@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "run-transcription-demo",
+			"type": "shell",
+			"command": "pdm run python main.py",
+			"group": "build",
+			"isBackground": false
+		}
+	]
+}

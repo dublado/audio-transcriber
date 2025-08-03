@@ -1,0 +1,25 @@
+[project]
+name = "audio-transcriber"
+version = "0.1.0"
+description = "Sistema de transcrição de áudio agnóstico com arquitetura hexagonal"
+authors = [
+    {name = "Thiago Machado", email = "104500+dublado@users.noreply.github.com"},
+]
+dependencies = []
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
