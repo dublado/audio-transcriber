@@ -20,6 +20,17 @@ dev = [
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-
 [tool.pdm]
 distribution = true
+
+# Configuração para incluir apenas os módulos Python
+[tool.pdm.build]
+includes = [
+    "audio_transcriber/",
+]
+excludes = [
+    "examples/",
+    "tests/",
+    "__pycache__/",
+    "*.pyc",
+]
