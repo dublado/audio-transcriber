@@ -61,23 +61,23 @@ git clone <url-do-repo>
 cd audio-transcriber
 
 # Instale dependências com PDM
-pdm install
+pdm install -G dev
 
 # Execute o exemplo
-pdm run python main.py
+python examples/simple_usage.py
 ```
 
 ### Uso Básico
 
 ```python
 from pathlib import Path
-from src.transcription.domain.models.audio_file import AudioFile
-from src.transcription.domain.models.transcription_job import TranscriptionJob
-from src.transcription.domain.models.transcription_plan import TranscriptionPlan
-from src.transcription.application.use_cases.execute_transcription_plan import ExecuteTranscriptionPlan
-from src.transcription.application.policies.fallback_policy import DefaultFallbackPolicy
-from src.transcription.infrastructure.transcribers.registry import TranscriberRegistry
-from src.transcription.infrastructure.transcribers.openai_adapter import OpenAIAdapter
+from audio_transcriber.domain.models.audio_file import AudioFile
+from audio_transcriber.domain.models.transcription_job import TranscriptionJob
+from audio_transcriber.domain.models.transcription_plan import TranscriptionPlan
+from audio_transcriber.application.use_cases.execute_transcription_plan import ExecuteTranscriptionPlan
+from audio_transcriber.application.policies.fallback_policy import DefaultFallbackPolicy
+from audio_transcriber.infrastructure.transcribers.registry import TranscriberRegistry
+from audio_transcriber.infrastructure.transcribers.openai_adapter import OpenAIAdapter
 
 # Setup
 registry = TranscriberRegistry()
@@ -125,7 +125,7 @@ policy = FormatAwareFallbackPolicy("mp3")
 1. **Implemente a interface Transcriber**:
 
 ```python
-from src.transcription.domain.interfaces.transcriber import Transcriber
+from audio_transcriber.domain.interfaces.transcriber import Transcriber
 
 class NovoProviderAdapter(Transcriber):
     def transcribe(self, audio_file, options=None):
@@ -153,7 +153,7 @@ registry.register(NovoProviderAdapter())
 ### Criando Nova Política de Fallback
 
 ```python
-from src.transcription.application.policies.fallback_policy import FallbackPolicy
+from audio_transcriber.application.policies.fallback_policy import FallbackPolicy
 
 class MinhaPolicy(FallbackPolicy):
     def resolve(self, transcriber_names, registry):
@@ -187,12 +187,40 @@ plan = TranscriptionPlan(
 
 ## 🧪 Testes
 
+Para garantir que o sistema está funcionando corretamente, você pode executar os testes automatizados.
+
+### Executar Testes
+
+1. Certifique-se de que as dependências de desenvolvimento estão instaladas:
+   ```bash
+   pdm install -G dev
+   ```
+
+2. Execute os testes:
+   ```bash
+   pdm run pytest
+   ```
+
+3. Para gerar um relatório de cobertura de código:
+   ```bash
+   pdm run pytest --cov=audio_transcriber --cov-report=term-missing
+   ```
+
+### Estrutura dos Testes
+
+Os testes estão localizados no diretório `tests/` e cobrem as seguintes áreas:
+- **Domínio**: Testes para entidades e objetos de valor
+- **Casos de Uso**: Testes para a lógica de aplicação  
+- **Infraestrutura**: Testes para adaptadores e integração com provedores
+
+Certifique-se de que todos os testes passam antes de realizar alterações no código.
+
 ```bash
 # Execute os testes
 pdm run pytest tests/
 
 # Com cobertura
-pdm run pytest tests/ --cov=src
+pdm run pytest tests/ --cov=audio_transcriber
 ```
 
 ## 📊 Status da Transcrição

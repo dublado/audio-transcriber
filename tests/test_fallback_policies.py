@@ -4,7 +4,7 @@ Testes para políticas de fallback.
 import pytest
 from unittest.mock import Mock
 
-from src.transcription.application.policies.fallback_policy import (
+from audio_transcriber.application.policies.fallback_policy import (
     DefaultFallbackPolicy,
     AvailabilityFirstFallbackPolicy,
     FormatAwareFallbackPolicy

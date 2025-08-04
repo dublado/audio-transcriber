@@ -4,8 +4,8 @@ Testes para TranscriberRegistry.
 import pytest
 from unittest.mock import Mock
 
-from src.transcription.infrastructure.transcribers.registry import TranscriberRegistry
-from src.transcription.domain.interfaces.transcriber import Transcriber
+from audio_transcriber.infrastructure.transcribers.registry import TranscriberRegistry
+from audio_transcriber.domain.interfaces.transcriber import Transcriber
 
 
 class MockTranscriber(Transcriber):

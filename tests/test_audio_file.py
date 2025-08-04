@@ -5,7 +5,7 @@ import pytest
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
-from src.transcription.domain.models.audio_file import AudioFile
+from audio_transcriber.domain.models.audio_file import AudioFile
 
 
 class TestAudioFile:
