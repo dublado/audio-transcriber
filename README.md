@@ -50,7 +50,7 @@ src/transcription/
 
 ### Pré-requisitos
 
-- Python 3.11+
+- Python 3.10+
 - PDM (Python Development Master)
 
 ### Instalação
