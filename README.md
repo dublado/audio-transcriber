@@ -260,6 +260,10 @@ logging.basicConfig(level=logging.DEBUG)
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
+## 📚 Artigos e Referências
+
+- [Como criei meu próprio sistema de transcrição de áudio open source para o Telegram (dev.to)](https://dev.to/dublado/como-criei-meu-proprio-sistema-de-transcricao-de-audio-4o17)
+
 ---
 
 **Desenvolvido com 🏗️ Arquitetura Hexagonal e ❤️ Domain-Driven Design**
